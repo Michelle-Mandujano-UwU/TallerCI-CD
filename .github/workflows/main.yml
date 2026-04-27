@@ -11,6 +11,6 @@ jobs:
   steps:
    - name: mostrar mensaje
      run: echo "Hola, este es mi primer mensaje"
-    - name: fallo intencionado
-      run: exi 1
+   - name: fallo intencionado
+     run: exi 1
 
