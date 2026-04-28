@@ -18,6 +18,8 @@ jobs:
  
       - name: Construir app con node
         run: npm install
+      - name: Probar app con tests
+        run: npm test
  
       - name: Verificar si app.js existe
         run: |
