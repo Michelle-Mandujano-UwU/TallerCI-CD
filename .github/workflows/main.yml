@@ -27,7 +27,7 @@ jobs:
       run: npm install
     - name: verificar si app.js existe
       run: |
-        if [ ! -f "$GITHUB_WORKSPACE/app.js" ]; then
+        if [ ! -f"$GITHUB_WORKSPACE/app.js" ]; then
           echo "No se encontro el archivo app.js en la raiz"
           exit 1
         fi
