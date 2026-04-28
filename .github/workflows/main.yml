@@ -1,4 +1,5 @@
-name : Mi primer github action
+#name : Mi primer github action
+name: papeline para revisar archivo
 
 on:
  push: 
@@ -8,9 +9,29 @@ jobs:
  saludo:
   runs-on: ubuntu-latest
   
-  steps:
-   - name: mostrar mensaje
-     run: echo "Hola, este es mi primer mensaje"
-   - name: fallo intencionado
-     run: exi 1
+ # steps:
+  # - name: mostrar mensaje
+  #   run: echo "Hola, este es mi primer mensaje"
+  # - name: fallo intencionado
+   #  run: exi 1
 
+
+
+steps:
+  - name: checkout del codigo
+    uses: actions/checkout@v4
+  - name: usar NODE.JS
+    uses: actions/setup-node@v4
+    with:
+     node-version: '20'
+  - name: construir app con node
+    run: npm install
+  - name: verificar que el archivo existe
+    run: |
+     if [ ! -f " SGITHUB_WORKSPACE/app.js" ]; then
+      echo "No se encontro el archivo app.js en la raiz"
+      exit 1
+     fi
+     echo "Archivo app.js encontrado, continuando con el workflow..."
+ 
+    
